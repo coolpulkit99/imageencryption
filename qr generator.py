@@ -11,7 +11,7 @@ import cv2
 #Encrpytion generating "key1"
 code=pyqrcode.create("thisiskey")
 #read key1 and show it
-code.png('code.png', scale=6, module_color=[1, 1, 1, 128], background=[0xff, 0xff, 0xff])
+code.png('code.png', scale=16, module_color=[1, 1, 1, 128], background=[20,5,10,155])
 imgkey=cv2.imread("code.png")
 imgkey=cv2.medianBlur(imgkey,45)
 print(np.shape(imgkey))
@@ -46,7 +46,7 @@ newsig=sig.convolve(key,encrypimg)
 print("Start")
 
 #DEcrypting using key2
-#recoveredsig,remain=sig.deconvolve(newsig,key)
+recoveredsig,remain=sig.deconvolve(newsig,key)
 print("End")
 #DEcrypting using key1
 abbc=np.reshape(np.uint8(np.divide(recoveredsig,imgkeystraight)),dimen)
